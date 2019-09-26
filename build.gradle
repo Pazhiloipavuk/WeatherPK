@@ -1,0 +1,66 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+
+    //realm
+    ext.realmVersion = "5.13.0"
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        classpath "io.realm:realm-gradle-plugin:$realmVersion"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    minSdkVersion = 21
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.3'
+
+    appCompatVersion = '1.1.0-beta01'
+
+    recyclerViewVersion = '1.1.0-alpha06'
+
+    constraintLayoutVersion = '1.1.3'
+
+    glideVersion = '4.9.0'
+
+    rxjava2Version = '2.2.8'
+
+    rxandroidVersion = '2.1.1'
+
+    rxViewBindingVersion = "3.0.0-alpha2"
+
+    moxyVersion = '1.5.6'
+
+    retrofitVersion = '2.6.0'
+
+    kodeinVersion = "6.1.0"
+
+    ktxVersion = '1.2.0-alpha02'
+
+    googleVersion = "17.0.0"
+
+    eventBusVersion = '3.1.1'
+}

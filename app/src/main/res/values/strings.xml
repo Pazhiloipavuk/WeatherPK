@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">WeatherPK</string>
+    <string name="hint_search_string">Search city</string>
+    <string name="button_search">Show weather forecast</string>
+    <string name="registration">Registration</string>
+    <string name="authorization">Authorization</string>
+    <string name="weather">Weather</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+    <string name="finish">Finish</string>
+    <string name="search_by_your_location">Search by your location</string>
+    <string name="log_out">Log out</string>
+
+    <string-array name="cities_array">
+        <item>Minsk</item>
+        <item>Paris</item>
+        <item>London</item>
+        <item>Moscow</item>
+        <item>Berlin</item>
+        <item>Kiev</item>
+        <item>New York</item>
+        <item>Madrid</item>
+        <item>Mira</item>
+        <item>Washington</item>
+        <item>Buenos Aires</item>
+        <item>Brasília</item>
+        <item>Santiago</item>
+        <item>Amsterdam</item>
+        <item>Bern</item>
+        <item>Budapest</item>
+        <item>Luxembourg</item>
+        <item>Oslo</item>
+    </string-array>
+</resources>
