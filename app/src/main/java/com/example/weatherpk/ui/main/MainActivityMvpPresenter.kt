@@ -4,8 +4,8 @@ import android.content.SharedPreferences
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.example.weatherpk.MyApp
-import com.example.weatherpk.R
 import com.example.weatherpk.internet.WeatherRepository
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -15,6 +15,8 @@ import org.kodein.di.generic.instance
 class MainActivityMvpPresenter : MvpPresenter<MainActivityMvpView>() {
 
     private var disposable: Disposable? = null
+    private var subscribe: Disposable? = null
+
     private val weatherService: WeatherRepository by MyApp.kodein.instance()
     private val pref: SharedPreferences by MyApp.kodein.instance()
     private val APP_PREFERENCES_USER = "user"
@@ -43,6 +45,13 @@ class MainActivityMvpPresenter : MvpPresenter<MainActivityMvpView>() {
             )
     }
 
+    fun initRecyclerViewListener(clickEvent: Observable<String>) {
+        subscribe = clickEvent
+            .subscribe{
+                searchByCity(it)
+            }
+    }
+
     fun logOut() {
         pref.edit().putBoolean(APP_PREFERENCES_USER, false).apply()
         viewState.returnRegistrationActivity()
@@ -50,5 +59,6 @@ class MainActivityMvpPresenter : MvpPresenter<MainActivityMvpView>() {
 
     fun onPause() {
         disposable?.dispose()
+        subscribe?.dispose()
     }
 }

@@ -60,10 +60,6 @@ class MainActivity :  MvpAppCompatActivity(), MainActivityMvpView {
         finish()
     }
 
-    private fun cityClicked(city : String) {
-        mainActivityMvpPresenter.searchByCity(city)
-    }
-
     private fun initAllListenerButtons() {
         btnSearchByLocation.setOnClickListener {
             searchByCoordinates()
@@ -108,17 +104,13 @@ class MainActivity :  MvpAppCompatActivity(), MainActivityMvpView {
                     .setTitle("Permission")
                     .setMessage("Permission needed!")
                     .setPositiveButton("OK"){_, _ ->
-                        ActivityCompat.requestPermissions(this, perm,
-                            PERMISSION_ID
-                        )
+                        ActivityCompat.requestPermissions(this, perm, PERMISSION_ID)
                     }
                     .setNegativeButton("No"){_, _ -> }
                     .create()
                 dialog.show()
             } else {
-                ActivityCompat.requestPermissions(this, perm,
-                    PERMISSION_ID
-                )
+                ActivityCompat.requestPermissions(this, perm, PERMISSION_ID)
             }
             return false
         }
@@ -131,13 +123,13 @@ class MainActivity :  MvpAppCompatActivity(), MainActivityMvpView {
         txt_wind.text = "Wind speed:$windSpeed"
     }
 
-    private fun getAllCities() : ArrayList<String> = resources.
-                                                     getStringArray(R.array.cities_array).
-                                                     toCollection(ArrayList())
+    private fun getAllCities() = resources.getStringArray(R.array.cities_array).toCollection(ArrayList())
 
     private fun connectRecyclerView() {
         vRvCities.layoutManager = LinearLayoutManager(this)
-        vRvCities.adapter = myListAdapter(getAllCities()) { city: String -> cityClicked(city) }
+        val myAdapter = myListAdapter(getAllCities())
+        vRvCities.adapter = myAdapter
+        mainActivityMvpPresenter.initRecyclerViewListener(myAdapter.clickEvent)
     }
 
     override fun showError(error: String?) = Toast.makeText(this, error, Toast.LENGTH_LONG)
