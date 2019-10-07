@@ -28,7 +28,7 @@ class MainActivity :  MvpAppCompatActivity(), MainActivityMvpView {
 
     private var fusedLocationClient: FusedLocationProviderClient? = null
 
-    @InjectPresenter(type = PresenterType.GLOBAL)
+    @InjectPresenter
     lateinit var mainActivityMvpPresenter: MainActivityMvpPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {

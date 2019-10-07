@@ -12,7 +12,7 @@ import com.example.weatherpk.ui.registration.RegistrationActivity
 
 class CheckActivity : MvpAppCompatActivity(), CheckActivityMvpView {
 
-    @InjectPresenter(type = PresenterType.GLOBAL)
+    @InjectPresenter
     lateinit var checkActivityMvpPresenter: CheckActivityMvpPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,5 +28,6 @@ class CheckActivity : MvpAppCompatActivity(), CheckActivityMvpView {
             1 -> intent = Intent(this, MainActivity::class.java)
         }
         startActivity(intent)
+        finish()
     }
 }

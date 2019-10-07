@@ -3,6 +3,7 @@ package com.example.weatherpk.ui.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.weatherpk.R
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
@@ -25,6 +26,7 @@ class ViewHolder(private val view: View, var clickSubject: PublishSubject<String
     private fun setOnClickListener(item: String) {
         itemView.setOnClickListener {
             clickSubject.onNext(item)
+            itemView.setBackgroundResource(R.color.green)
         }
     }
 }

@@ -7,12 +7,13 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.example.weatherpk.R
 import com.example.weatherpk.ui.MvpAppCompatActivity
+import com.example.weatherpk.ui.checking.CheckActivity
 import com.example.weatherpk.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class RegistrationActivity : MvpAppCompatActivity(), RegistrationActivityMvpView {
 
-    @InjectPresenter(type = PresenterType.GLOBAL)
+    @InjectPresenter
     lateinit var registrationActivityMvpPresenter: RegistrationActivityMvpPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
