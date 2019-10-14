@@ -117,6 +117,17 @@ class MainActivity :  MvpAppCompatActivity(), MainActivityMvpView {
         return true
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PERMISSION_ID -> searchByCoordinates()
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
     override fun showWeatherForecast(temp: Int, pressure: Int, windSpeed: Double) {
         txt_temp.text = "Temperature:$temp"
         txt_pressure.text = "Pressure:$pressure"
