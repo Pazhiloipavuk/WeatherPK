@@ -26,7 +26,6 @@ class ViewHolder(private val view: View, var clickSubject: PublishSubject<String
     private fun setOnClickListener(item: String) {
         itemView.setOnClickListener {
             clickSubject.onNext(item)
-            itemView.setBackgroundResource(R.color.green)
         }
     }
 }

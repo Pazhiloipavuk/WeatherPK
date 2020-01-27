@@ -8,7 +8,7 @@ class WeatherRepository (private val service: WeatherService) {
         return service.getWeatherByCity(city)
     }
 
-    fun getWeatherByCoordinates (lat: String, lon: String) : Observable<WeatherResponse.Result> {
+    fun getWeatherByCoordinates(lat: String, lon: String) : Observable<WeatherResponse.Result> {
         return service.getWeatherByCoordinates(lat, lon)
     }
 }
